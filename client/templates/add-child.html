@@ -1,0 +1,73 @@
+<ion-view title="Add A Child" class="card-bg">
+
+    <ion-nav-buttons side="right">
+        <button class="button button-clear" ng-click="submit()">Save</button>
+    </ion-nav-buttons>
+
+    <ion-content has-header="true" has-padding="true">
+
+      
+           
+            <form class="list list-inset" style="clear: both;margin-top: 0">
+                <div class="item item-divider">
+                Personal
+                </div>
+                <label class="item item-input">
+                    <span class="input-label">Initials</span>
+                    <input type="text" ng-model="child.childs_initials__c"/>
+                </label>
+                 <label class="item item-input">
+                    <span class="input-label">First name</span>
+                    <input type="text" ng-model="child.child_s_first_name__c"/>
+                </label>
+                 <label class="item item-input">
+                    <span class="input-label">Last name</span>
+                    <input type="text" ng-model="child.child_s_last_name__c"/>
+                </label>
+                 <label class="item item-input">
+                    <span class="input-label">Nickname</span>
+                    <input type="text" ng-model="child.childs_nickname__c"/>
+                </label>
+               
+                 <label class="item item-input">
+                    <span class="input-label">Birthdate</span>
+                    <input type="date" ng-model="child.birthdate__c" />
+                </label>
+                 <div class="item item-divider">
+                Permission to act on child's behalf
+                </div>
+                <ion-list>
+                <ion-radio ng-model="child.adult_can_act_on_child_s_behalf__c" ng-value="'true'">Yes</ion-radio>
+                <ion-radio ng-model="child.adult_can_act_on_child_s_behalf__c" ng-value="'false'">No</ion-radio>
+            </ion-list>
+
+           
+               
+                <div class="item item-divider">
+                Gender
+                </div>
+                <ion-radio name="gender"  ng-repeat="gender in genders"
+                           ng-value="gender.value"
+                           ng-model="child.gender__c">
+                           {{gender.text}}
+                    
+                </ion-radio>
+                  <div class="item item-divider">
+                Previous Diagnosis
+                </div>
+                  <ion-radio name="diagnosis"  ng-repeat="diagnosis in diagnoses"
+                           ng-value="diagnosis.value"
+                           ng-model="child.diagnosis__c">
+                           {{diagnosis.text}}
+                    
+                </ion-radio>
+                
+                
+                
+            </form>
+      
+
+
+    </ion-content>
+
+</ion-view>
